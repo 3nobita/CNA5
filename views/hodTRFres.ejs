@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Request Forms</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        header h1 {
+            font-size: 26px;
+            text-transform: uppercase;
+            margin: 0;
+            color: #00695c;
+        }
+
+        .form-container {
+            display: none;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #00897b;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #004d40;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #00796b;
+        }
+
+        .form-text {
+            padding: 10px;
+            background: #f1f1f1;
+            border-radius: 6px;
+            border: 1px solid #b2dfdb;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-group button {
+            padding: 12px 20px;
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-group button:hover {
+            background-color: #004d40;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .form-selector {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-selector button {
+            padding: 15px;
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-selector button:hover {
+            background-color: #004d40;
+        }
+
+        .form-selector button::after {
+            content: '\25BC';
+            position: absolute;
+            right: 15px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function showForm(formId) {
+            const forms = document.querySelectorAll('.form-container');
+            forms.forEach(form => {
+                form.style.display = 'none';
+            });
+            document.getElementById(formId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJOtMlU4h8E4mfpgL1LxAi7j9peIdInZHsKlPfg3ciMColbQXYFZRGndw4hADpGQQ5rDEo5xZMQ4cRWaxaDhnwyRrVTob6VwD79xfVKDPWwReIJKj4KSWpKUdWZrNZzxPirQuwq1d2hhK5K9JUQYgt0Yv8XuJdzoGX25MOIhjAUsSmY4HBThol1e-KXvQ/s367/CEA-removebg-preview.png" alt="CAE Simulation Training Private Limited">
+    <h1>Travel Request Forms</h1>
+</header>
+
+<div class="form-selector">
+    <button onclick="showForm('form1')">Empolyee : Rahul</button>
+    <button onclick="showForm('form2')">Empolyee : Bhavesh</button>
+    <button onclick="showForm('form3')">Empolyee : Sanjay</button>
+</div>
+
+<div id="form1" class="form-container">
+    <div class="form-section">
+        <h3>APPROVER, review request</h3>
+        <p>Please note: All requests must be forwarded at least 3 business days in advance of the travel date (In case of Planned travel for Instructors/employees at least 30-60 days in advance of the travel date).</p>
+    </div>
+    
+    <div class="form-section">
+        <div class="form-group">
+            <label>Purpose of Trip:</label>
+            <div class="form-text">Business Meeting</div>
+        </div>
+        <div class="form-group">
+            <label>Reason of Trip:</label>
+            <div class="form-text">Client Meeting</div>
+        </div>
+        <div class="form-group">
+            <label>Being Visited:</label>
+            <div class="form-text">ABC Corp</div>
+        </div>
+        <div class="form-group">
+            <label>Date Of Request:</label>
+            <div class="form-text">2024-07-15</div>
+        </div>
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <div class="form-text">1234567890</div>
+        </div>
+        <div class="form-group">
+            <label>Project Number:</label>
+            <div class="form-text">98765</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>RESERVATION STATUS</h3>
+        <div class="form-group">
+            <div class="form-text">
+                <input type="checkbox" id="new1" name="status" value="New" checked disabled>
+                <label for="new1">New</label>
+                <input type="checkbox" id="change1" name="status" value="Change" disabled>
+                <label for="change1">Change</label>
+                <input type="checkbox" id="cancel1" name="status" value="Cancel" disabled>
+                <label for="cancel1">Cancel</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>File Number:</label>
+            <div class="form-text">TR123456</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>FLIGHT / RAIL INFORMATION</h3>
+        <div class="form-group">
+            <label>Departure Date:</label>
+            <div class="form-text">2024-07-20</div>
+        </div>
+        <div class="form-group">
+            <label>Depart From (City/Country):</label>
+            <div class="form-text">New York, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Desired Departure Time:</label>
+            <div class="form-text">10:00 AM</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">Aisle Seat</div>
+        </div>
+        <div class="form-group">
+            <label>Additional Information:</label>
+            <div class="form-text">N/A</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>CAR RENTAL INFORMATION</h3>
+        <div class="form-group">
+            <label>Car Rental Company:</label>
+            <div class="form-text">Hertz</div>
+        </div>
+        <div class="form-group">
+            <label>City/Country:</label>
+            <div class="form-text">New York, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Pick-up Date:</label>
+            <div class="form-text">2024-07-20</div>
+        </div>
+        <div class="form-group">
+            <label>Drop Off Date:</label>
+            <div class="form-text">2024-07-25</div>
+        </div>
+        <div class="form-group">
+            <label>Total number in party:</label>
+            <div class="form-text">2</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">SUV</div>
+        </div>
+        <div class="form-group">
+            <label>Additional Information:</label>
+            <div class="form-text">N/A</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>HOTEL INFORMATION</h3>
+        <div class="form-group">
+            <label>Hotel Name:</label>
+            <div class="form-text">Hilton</div>
+        </div>
+        <div class="form-group">
+            <label>City/Country:</label>
+            <div class="form-text">New York, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Check In Date:</label>
+            <div class="form-text">2024-07-20</div>
+        </div>
+        <div class="form-group">
+            <label>Check Out Date:</label>
+            <div class="form-text">2024-07-25</div>
+        </div>
+        <div class="form-group">
+            <label># Of Nights:</label>
+            <div class="form-text">5</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">Non-Smoking</div>
+        </div>
+        <div class="form-group">
+            <label>Location:</label>
+            <div class="form-text">Near Conference Center</div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="approve-button">Approve</button>
+        <button class="decline-button">Decline</button>
+        <button class="hold-button">On Hold</button>
+    </div>
+</div>
+
+<div id="form2" class="form-container">
+    <div class="form-section">
+        <h3>APPROVER, review request</h3>
+        <p>Please note: All requests must be forwarded at least 3 business days in advance of the travel date (In case of Planned travel for Instructors/employees at least 30-60 days in advance of the travel date).</p>
+    </div>
+    
+    <div class="form-section">
+        <div class="form-group">
+            <label>Purpose of Trip:</label>
+            <div class="form-text">Training Session</div>
+        </div>
+        <div class="form-group">
+            <label>Reason of Trip:</label>
+            <div class="form-text">Employee Training</div>
+        </div>
+        <div class="form-group">
+            <label>Being Visited:</label>
+            <div class="form-text">XYZ Ltd</div>
+        </div>
+        <div class="form-group">
+            <label>Date Of Request:</label>
+            <div class="form-text">2024-07-16</div>
+        </div>
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <div class="form-text">9876543210</div>
+        </div>
+        <div class="form-group">
+            <label>Project Number:</label>
+            <div class="form-text">12345</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>RESERVATION STATUS</h3>
+        <div class="form-group">
+            <div class="form-text">
+                <input type="checkbox" id="new2" name="status" value="New" checked disabled>
+                <label for="new2">New</label>
+                <input type="checkbox" id="change2" name="status" value="Change" disabled>
+                <label for="change2">Change</label>
+                <input type="checkbox" id="cancel2" name="status" value="Cancel" disabled>
+                <label for="cancel2">Cancel</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>File Number:</label>
+            <div class="form-text">TR654321</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>FLIGHT / RAIL INFORMATION</h3>
+        <div class="form-group">
+            <label>Departure Date:</label>
+            <div class="form-text">2024-07-25</div>
+        </div>
+        <div class="form-group">
+            <label>Depart From (City/Country):</label>
+            <div class="form-text">Los Angeles, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Desired Departure Time:</label>
+            <div class="form-text">11:00 AM</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">Window Seat</div>
+        </div>
+        <div class="form-group">
+            <label>Additional Information:</label>
+            <div class="form-text">N/A</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>CAR RENTAL INFORMATION</h3>
+        <div class="form-group">
+            <label>Car Rental Company:</label>
+            <div class="form-text">Avis</div>
+        </div>
+        <div class="form-group">
+            <label>City/Country:</label>
+            <div class="form-text">Los Angeles, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Pick-up Date:</label>
+            <div class="form-text">2024-07-25</div>
+        </div>
+        <div class="form-group">
+            <label>Drop Off Date:</label>
+            <div class="form-text">2024-07-30</div>
+        </div>
+        <div class="form-group">
+            <label>Total number in party:</label>
+            <div class="form-text">3</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">Sedan</div>
+        </div>
+        <div class="form-group">
+            <label>Additional Information:</label>
+            <div class="form-text">N/A</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>HOTEL INFORMATION</h3>
+        <div class="form-group">
+            <label>Hotel Name:</label>
+            <div class="form-text">Marriott</div>
+        </div>
+        <div class="form-group">
+            <label>City/Country:</label>
+            <div class="form-text">Los Angeles, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Check In Date:</label>
+            <div class="form-text">2024-07-25</div>
+        </div>
+        <div class="form-group">
+            <label>Check Out Date:</label>
+            <div class="form-text">2024-07-30</div>
+        </div>
+        <div class="form-group">
+            <label># Of Nights:</label>
+            <div class="form-text">5</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">King Size Bed</div>
+        </div>
+        <div class="form-group">
+            <label>Location:</label>
+            <div class="form-text">Near Airport</div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="approve-button">Approve</button>
+        <button class="decline-button">Decline</button>
+        <button class="hold-button">On Hold</button>
+    </div>
+</div>
+
+<div id="form3" class="form-container">
+    <div class="form-section">
+        <h3>APPROVER, review request</h3>
+        <p>Please note: All requests must be forwarded at least 3 business days in advance of the travel date (In case of Planned travel for Instructors/employees at least 30-60 days in advance of the travel date).</p>
+    </div>
+    
+    <div class="form-section">
+        <div class="form-group">
+            <label>Purpose of Trip:</label>
+            <div class="form-text">Conference</div>
+        </div>
+        <div class="form-group">
+            <label>Reason of Trip:</label>
+            <div class="form-text">Annual Conference</div>
+        </div>
+        <div class="form-group">
+            <label>Being Visited:</label>
+            <div class="form-text">DEF Inc</div>
+        </div>
+        <div class="form-group">
+            <label>Date Of Request:</label>
+            <div class="form-text">2024-07-17</div>
+        </div>
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <div class="form-text">4561237890</div>
+        </div>
+        <div class="form-group">
+            <label>Project Number:</label>
+            <div class="form-text">67890</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>RESERVATION STATUS</h3>
+        <div class="form-group">
+            <div class="form-text">
+                <input type="checkbox" id="new3" name="status" value="New" checked disabled>
+                <label for="new3">New</label>
+                <input type="checkbox" id="change3" name="status" value="Change" disabled>
+                <label for="change3">Change</label>
+                <input type="checkbox" id="cancel3" name="status" value="Cancel" disabled>
+                <label for="cancel3">Cancel</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>File Number:</label>
+            <div class="form-text">TR789012</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>FLIGHT / RAIL INFORMATION</h3>
+        <div class="form-group">
+            <label>Departure Date:</label>
+            <div class="form-text">2024-07-28</div>
+        </div>
+        <div class="form-group">
+            <label>Depart From (City/Country):</label>
+            <div class="form-text">Chicago, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Desired Departure Time:</label>
+            <div class="form-text">09:00 AM</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">Front Row Seat</div>
+        </div>
+        <div class="form-group">
+            <label>Additional Information:</label>
+            <div class="form-text">N/A</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>CAR RENTAL INFORMATION</h3>
+        <div class="form-group">
+            <label>Car Rental Company:</label>
+            <div class="form-text">Enterprise</div>
+        </div>
+        <div class="form-group">
+            <label>City/Country:</label>
+            <div class="form-text">Chicago, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Pick-up Date:</label>
+            <div class="form-text">2024-07-28</div>
+        </div>
+        <div class="form-group">
+            <label>Drop Off Date:</label>
+            <div class="form-text">2024-08-02</div>
+        </div>
+        <div class="form-group">
+            <label>Total number in party:</label>
+            <div class="form-text">4</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">Convertible</div>
+        </div>
+        <div class="form-group">
+            <label>Additional Information:</label>
+            <div class="form-text">N/A</div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h3>HOTEL INFORMATION</h3>
+        <div class="form-group">
+            <label>Hotel Name:</label>
+            <div class="form-text">Hyatt</div>
+        </div>
+        <div class="form-group">
+            <label>City/Country:</label>
+            <div class="form-text">Chicago, USA</div>
+        </div>
+        <div class="form-group">
+            <label>Check In Date:</label>
+            <div class="form-text">2024-07-28</div>
+        </div>
+        <div class="form-group">
+            <label>Check Out Date:</label>
+            <div class="form-text">2024-08-02</div>
+        </div>
+        <div class="form-group">
+            <label># Of Nights:</label>
+            <div class="form-text">5</div>
+        </div>
+        <div class="form-group">
+            <label>Preferences:</label>
+            <div class="form-text">Free Breakfast</div>
+        </div>
+        <div class="form-group">
+            <label>Location:</label>
+            <div class="form-text">Near Convention Center</div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="approve-button">Approve</button>
+        <button class="decline-button">Decline</button>
+        <button class="hold-button">On Hold</button>
+    </div>
+</div>
+
+</body>
+</html>

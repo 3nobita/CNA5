@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Travel Requests</title>
+</head>
+<body>
+    <h1>Submitted Travel Requests</h1>
+    <ul>
+        <% travelRequests.forEach(request => { %>
+            <li>
+                <strong>Traveller Name:</strong> <%= request.travellerName %><br>
+                <strong>Mobile No.:</strong> <%= request.mobileNo %><br>
+                <strong>Date of Request:</strong> <%= request.dateOfRequest %><br>
+                <strong>Employee Code:</strong> <%= request.employeeCode %><br>
+                <strong>Department Name:</strong> <%= request.departmentName %><br>
+                <strong>Band & Designation:</strong> <%= request.bandDesignation %><br>
+                <strong>Travel From:</strong> <%= request.travelFrom %><br>
+                <strong>Travel To:</strong> <%= request.travelTo %><br>
+                <strong>Purpose of Travel:</strong> <%= request.travelPurpose %><br>
+                <strong>Departure Date:</strong> <%= request.departureDate %><br>
+                <strong>Return Date:</strong> <%= request.returnDate %><br>
+                <strong>Accommodation Required:</strong> <%= request.accommodationRequired %><br>
+                <strong>Hotel Name:</strong> <%= request.hotelName %><br>
+                <strong>Hotel Address:</strong> <%= request.hotelAddress %><br>
+                <strong>Hotel Contact:</strong> <%= request.hotelContact %><br>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

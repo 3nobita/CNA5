@@ -1,0 +1,314 @@
+<!-- views/em_TRF.ejs  -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Request Form</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header img.logo {
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            color: #333;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        legend {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select,
+        datalist {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .contact-us {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-us ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-us li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhekDPGVGK7t6pEOYOVQaJNa3XQ0RRNXkd_ghJTJUj9YmpaOoILiF-eKs-o2pSWBa_dc934bqqQeHpTJQY7TI1LUvPeF_lf4k5O5p95UBm_tvjMskinpwdE5dF3OZ1u8giaVHeJrsmRRnfbnr8S51ss6BkcJQVIHi8AeTyexUUD37-wfiwE0qriyxKRMnk/s1600/CEA.jpg" alt="Logo" class="logo">
+            <h1>CAE Simulation Training Private Limited - Travel Request Form</h1>
+        </div>
+        <form action="" method="post" onsubmit="return formatDateInputs()">
+            <fieldset>
+                <legend>Traveller Information</legend>
+                <label for="travellerName">Traveller Name:</label>
+                <input list="travellerNames" id="travellerName" name="travellerName" required>
+                <datalist id="travellerNames">
+                    <option value="Abhilash Meshak A"></option>
+                    <option value="Saraneshwar Gowda"></option>
+                    <option value="Gourav Bhadrecha"></option>
+                    <option value="Jithesh N A"></option>
+                    <option value="Lipeesh VP"></option>
+                    <option value="Mallesh D"></option>
+                    <option value="Manjunath C"></option>
+                    <option value="Mohamed Shahmir"></option>
+                    <option value="Srikanth S"></option>
+                    <option value="Surendar V"></option>
+                    <option value="Prateek Pathak"></option>
+                    <option value="Nikhilesh Kandpal"></option>
+                    <option value="Gopesh Hardatt"></option>
+                    <option value="Amit Sharma"></option>
+                    <option value="Amulya Singh"></option>
+                    <option value="Mayatri Parikh"></option>
+                    <option value="Anchal Gupta"></option>
+                    <option value="Yasmeen Qureshi"></option>
+                    <option value="Bhakti Malhotra"></option>
+                    <option value="Tarun ."></option>
+                    <option value="Vaishnavi Sinha"></option>
+                    <option value="Sandeep Bhatia"></option>
+                    <option value="Avinesh Sinha"></option>
+                    <option value="Kuldeep Sharma"></option>
+                    <option value="Prashant Sinha"></option>
+                    <option value="Parul Mahajan"></option>
+                    <option value="Meghna Bose"></option>
+                    <option value="Pankaj Kumar Nathsharma"></option>
+                    <option value="Sarvesh Kumar Chaudhary"></option>
+                    <option value="Gaurav Bahar"></option>
+                    <option value="Sunil D"></option>
+                    <option value="Bharat CS"></option>
+                    <option value="Ganesh R"></option>
+                    <option value="Koyal"></option>
+                    <option value="Vakentesh R"></option>
+                    <option value="Pritam Kumar"></option>
+                    <option value="Vikas Khurma"></option>
+                    <option value="Rakesh Negi"></option>
+                    <option value="Suneel Kumar"></option>
+                    <option value="JJ Nijhawan"></option>
+                    <option value="Jayant Palekar"></option>
+                    <option value="Chandran Vedamurthy"></option>
+                    <option value="Aravind Kulkarni"></option>
+                </datalist>
+
+                <label for="mobileNo">Mobile No.:</label>
+                <input type="tel" id="mobileNo" name="mobileNo" required>
+
+                <label for="dateOfRequest">Date of Request:</label>
+                <input type="date" id="dateOfRequest" name="dateOfRequest" required>
+
+                <label for="employeeCode">Employee Code:</label>
+                <input type="text" id="employeeCode" name="employeeCode" required>
+
+                <label for="departmentName">Department Name:</label>
+                <input list="departments" id="departmentName" name="departmentName" required>
+                <datalist id="departments">
+                    <!-- Department names options here -->
+                    <option value="CSTPL Management"></option>
+                    <option value="Customer Service"></option>
+                    <option value="Engineering"></option>
+                    <option value="Finance & Accounts"></option>
+                    <option value="Human Resources"></option>
+                    <option value="Intern"></option>
+                    <option value="Quality"></option>
+                    <option value="Revenue Operations"></option>
+                    <option value="Store"></option>
+                    <option value="Training"></option>
+                    <option value="Instructor"></option>
+                </datalist>
+
+                <label for="bandDesignation">Band & Designation:</label>
+                <input list="bandDesignations" id="bandDesignation" name="bandDesignation" required>
+                <datalist id="bandDesignations">
+                    <!-- Band designations options here -->
+                    <option value="1 - Executive - Quality"></option>
+                    <option value="1 - Executive - Revenue Operations"></option>
+                    <option value="1 - Executive – Training Operations"></option>
+                    <option value="1 - Simulator Support Engineer I"></option>
+                    <option value="2 - Senior Executive – Inventory Management and Logistics Coordinator"></option>
+                    <option value="2 - Senior Executive - Quality"></option>
+                    <option value="2 - Senior Executive - Revenue Operations"></option>
+                    <option value="2 - Simulator Support Engineer II"></option>
+                    <option value="3 - Assistant Manager - Revenue & Operations"></option>
+                    <option value="3 - Assistant Manager-Human Resources"></option>
+                    <option value="3 - Chief Ground School Instructor"></option>
+                    <option value="3 - Fleet Care Taker"></option>
+                    <option value="3 - Simulator Support Engineer - IV"></option>
+                    <option value="3 - Simulator Support Engineer III"></option>
+                    <option value="4A - Manager - Engineering"></option>
+                    <option value="4A - Manager - Finance and Accounts"></option>
+                    <option value="4A - Manager – Quality"></option>
+                    <option value="4A - Manager - Training Administration"></option>
+                    <option value="4A - Manager - Training Compliances"></option>
+                    <option value="4C - Ground School Instructor"></option>
+                    <option value="5A - General Manager - Finance & Accounts"></option>
+                    <option value="5A - Head - Engineering & Operations"></option>
+                    <option value="N.A - General Manager"></option>
+                </datalist>
+
+                <label for="emailAddress">E-Mail Address:</label>
+                <input type="email" id="emailAddress" name="emailAddress" required>
+
+                <label for="hodName">HOD Name:</label>
+                <select id="hodName" name="hodName" required>
+                    <!-- HOD names options here -->
+                    <option value="Lipeesh VP">Lipeesh VP</option>
+                    <option value="Prateek Pathak">Prateek Pathak</option>
+                    <option value="Amit Sharma">Amit Sharma</option>
+                    <option value="Amulya Singh">Amulya Singh</option>
+                    <option value="Yasmeen Qureshi">Yasmeen Qureshi</option>
+                    <option value="Meghna Bose">Meghna Bose</option>
+                    <option value="Pankaj Kumar Nathsharma">Pankaj Kumar Nathsharma</option>
+                    <option value="JJ Nijhawan">JJ Nijhawan</option>
+                    <option value="Rakesh Negi">Rakesh Negi</option>
+                    <option value="Vikas Khurma">Vikas Khurma</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Flight / Rail Information</legend>
+                <label for="departureDate">Departure Date:</label>
+                <input type="date" id="departureDate" name="departureDate" required>
+
+                <label for="departFrom">Depart From (City/Country):</label>
+                <input list="cities" id="departFrom" name="departFrom" required>
+                <datalist id="cities">
+                    <!-- City names options here -->
+                    <option value="Mumbai"></option>
+                    <option value="Delhi"></option>
+                    <option value="Bangalore"></option>
+                    <option value="Gurgaon"></option>
+                    <option value="Kolkata"></option>
+                    <option value="Hyderabad"></option>
+                    <option value="Chandigarh"></option>
+                    <option value="Pune"></option>
+                    <option value="Jaipur"></option>
+                    <option value="Mumbai"></option>
+                </datalist>
+
+                <label for="departureTime">Desired Departure Time (e.g. 13:30:55):</label>
+                <input type="time" id="departureTime" name="departureTime" required>
+
+                <label for="arrivalTo">Arrival To (City/Country):</label>
+                <input list="cities" id="arrivalTo" name="arrivalTo" required>
+
+                <label for="arrivalTime">Desired Arrival Time (e.g. 13:30:55):</label>
+                <input type="time" id="arrivalTime" name="arrivalTime" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Hotel Information</legend>
+                <label for="hotelName">Hotel Name:</label>
+                <input type="text" id="hotelName" name="hotelName" required>
+
+                <label for="hotelCity">City/Country:</label>
+                <input list="cities" id="hotelCity" name="hotelCity" required>
+
+                <label for="checkInDate">Check in Date:</label>
+                <input type="date" id="checkInDate" name="checkInDate" required>
+
+                <label for="checkOutDate">Check Out Date:</label>
+                <input type="date" id="checkOutDate" name="checkOutDate" required>
+
+                <label for="nights"># of Nights:</label>
+                <input type="number" id="nights" name="nights" required>
+
+                <label for="location">Location:</label>
+                <select id="location" name="location" required>
+                    <option value="airport">Airport</option>
+                    <option value="downtown">Downtown</option>
+                </select>
+            </fieldset>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <section class="contact-us">
+            <h2>Contact Us</h2>
+            <p>If you have any queries, please feel free to contact:</p>
+            <ul>
+                <li>Name: Sandeep Bhatia</li>
+                <li>Mobile: 9644304333</li>
+                <li>Email: sandeep.bhatia@cae.com</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

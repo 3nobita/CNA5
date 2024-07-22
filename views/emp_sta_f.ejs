@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff;
+
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            max-width: 150px;
+            height: auto;
+        }
+        header h1 {
+            font-size: 24px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px dashed #007BFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #007BFF;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-actions {
+            text-align: center;
+        }
+        .form-actions button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-actions button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhekDPGVGK7t6pEOYOVQaJNa3XQ0RRNXkd_ghJTJUj9YmpaOoILiF-eKs-o2pSWBa_dc934bqqQeHpTJQY7TI1LUvPeF_lf4k5O5p95UBm_tvjMskinpwdE5dF3OZ1u8giaVHeJrsmRRnfbnr8S51ss6BkcJQVIHi8AeTyexUUD37-wfiwE0qriyxKRMnk/s1600/CEA.jpg" alt="CAE Simulation Training Private Limited">
+        <h1>CAE Simulation Training Private Limited</h1>
+    </header>
+
+    <form>
+        <h2>Store Requisition Form</h2>
+
+        <div class="form-group">
+            <label for="employeeCode">Employee Code:</label>
+            <input type="text" id="employeeCode" name="employeeCode" required>
+        </div>
+
+        <div class="form-group">
+            <label for="requisitionerName">Requisitioner's Name:</label>
+            <input type="text" id="requisitionerName" name="requisitionerName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required>
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+            <label for="itemDescription">Item Description:</label>
+            <textarea id="itemDescription" name="itemDescription" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+        </div>
+
+        <div class="form-group">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+</html>
