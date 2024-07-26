@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const User = require('./models/User'); // Ensure you have a User model
 const Request = require('./models/Request');
+const EMPTRF = require('./models/EMPTRF');
+const HODTRF = require('./models/HODTRF');
+const EmpStaForm = require('./models/EmpStaForm');
+const HodStaForm = require('./models/HodStaForm');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 require('dotenv').config();
@@ -61,33 +65,60 @@ app.post('/api/login', async (req, res) => {
 });
 
 // Admin Dashboard
-app.get('/admin/dashboard', (req, res) => {
+app.get('/admin/dashboard', async (req, res) => {
     if (req.session.user && req.session.user.role === 'admin') {
-        res.render('adminDashboard');
+        try {
+            const hodtrfs = await HODTRF.find(); // Fetch HODTRF data from MongoDB
+            res.render('adminDashboard', { HODTRF: hodtrfs }); // Pass HODTRF data to the template
+        } catch (error) {
+            console.error('Error fetching HODTRF data:', error);
+            res.render('adminDashboard', { HODTRF: [] }); // Render with an empty array in case of error
+        }
     } else {
         res.redirect('/');
     }
 });
 
-// HOD Dashboard
-app.get('/hod/dashboard', (req, res) => {
+
+app.get('/hod/dashboard', async (req, res) => {
     if (req.session.user && req.session.user.role === 'hod') {
-        res.render('hodDashboard');
+        try {
+            const emtrfs = await EMPTRF.find(); // Fetch the data
+            res.render('hodDashboard', { EMTRF: emtrfs });
+        } catch (error) {
+            console.error('Error fetching EMTRF data:', error); // Log error
+            res.render('hodDashboard', { EMTRF: [] }); // Render with empty array
+        }
     } else {
         res.redirect('/');
     }
 });
+
+
+
+
+
+
+
+//hod trf 
+app.get('/admin/hodtrfs', async (req, res) => {
+    try {
+        const hodtrfs = await HODTRF.find(); // Fetch all HODTRF records
+        res.render('hodtrfs-list', { HODTRF: hodtrfs }); // Pass data to EJS template
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
+});
+
+
+
+
 
 // View form to HOD
 app.get('/hod/driverForm', (req, res) => {
     res.render('driverForm');
 });
-app.get('/hod/str', (req, res) => {
-    res.render('hodStrres');
-});
-
-
-
 
 // Save HOD form to driver in MongoDB
 app.post('/api/users/hod/bookings', async (req, res) => {
@@ -101,19 +132,9 @@ app.post('/api/users/hod/bookings', async (req, res) => {
     }
 });
 
-app.get('/hod/TRF_req', (req, res) => {
-    res.render('hodTRFres');
+app.get('/hod/TRF_ADMIN', (req, res) => {
+    res.render('hod_trf');
 });
-app.get('/hod/Str_req', (req, res) => {
-    res.render('hodStrres');
-});
-
-
-
-
-
-
-
 
 
 // Driver Dashboard
@@ -184,10 +205,8 @@ app.get('/employee/dashboard', (req, res) => {
     }
 });
 
-// demo 
-app.get('/employee/travel-request-form', (req, res) => {
-    res.render('em_TRF');
-});
+
+
 app.get('/employee/Sta', (req, res) => {
     res.render('emp_sta');
 });
@@ -195,19 +214,50 @@ app.get('/employee/Sta_f', (req, res) => {
     res.render('emp_sta_f');
 });
 
+// FORM to show to employee 
+app.get('/employee/travel-request-form', (req, res) => {
+    res.render('em_TRF');
+});
+app.get('/hod/srt', (req, res) => {
+    res.render('hodsrtFrom');
+});
 
+// Handle form submission and save to database
+app.post('/api/EMP/HOD/TRF', async (req, res) => {
+    try {
+        const EMPTRFTOHOD = new EMPTRF(req.body); // Create a new instance of the EMPTRF model
+        await EMPTRFTOHOD.save(); // Save the travel request to the database
+        res.status(201).send('EMPTRF Req Send'); // Respond with a success message
+    } catch (err) {
+        console.error(err); // Log any errors that occur
+        res.status(500).send('Server error'); // Respond with an error message
+    }
+});
 
+app.post('/api/EMP/HOD/STR', async (req, res) => {
+    try {
+        const empstaForms = new EmpStaForm(req.body); 
+        await empstaForms.save();
+        res.status(201).send('empstaForms Req Send'); // Respond with a success message
+    } catch (err) {
+        console.error(err); // Log any errors that occur
+        res.status(500).send('Server error'); // Respond with an error message
+    }
+});
 
-
-
-
-
-
-
-
-
-
-
+// Handle form submission and save to database
+app.post('/api/HOD/ADMIN/TRF', async (req, res) => {
+    console.log('Received data:', req.body); // Log incoming data
+    console.log('HODTRF model:', HODTRF); // Log model to ensure it's the correct one
+    try {
+        const HODTOADMIN = new HODTRF(req.body); // Use HODTRF model
+        await HODTOADMIN.save(); // Save to HODTRF collection
+        res.status(201).send('TRF Req Send'); // Success message
+    } catch (err) {
+        console.error(err); // Log errors
+        res.status(500).send('Server error'); // Error message
+    }
+});
 // Route to display bookings for HOD
 app.get('/hod/bookings', async (req, res) => {
     try {
@@ -217,6 +267,79 @@ app.get('/hod/bookings', async (req, res) => {
         console.error('Error fetching bookings:', error);
         res.status(500).send('Error fetching bookings');
     }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.get('/admin/dashboard/str', async (req, res) => {
+    try {
+        const hodstaForms = await HodStaForm.find();
+        res.render('adminStr', { HodStaForm: hodstaForms });
+    } catch (error) {
+        console.error('Error fetching HodStaForm data:', error);
+        res.render('adminStr', { HodStaForm: [] });
+    }
+});
+
+app.post('/hod/srt/admin', async (req, res) => {
+    try {
+        const hodstaForms = new HodStaForm(req.body);
+        await hodstaForms.save();
+        res.status(201).send('hodstaForms Req Send'); 
+    } catch (err) {
+        console.error(err); 
+        res.status(500).send('Server error'); 
+    }
+});
+app.get('/admin/dashboard/str', (req, res) => {
+    res.render('adminStr');
+});
+app.get('/api/hodstr/Form', (req, res) => {
+    res.render('hodsrtForm');
+});
+
+//  SRF form emp to hod
+app.get('/hod/str', async (req, res) => {
+    try {
+        const empstaForms = await EmpStaForm.find();
+        res.render('hodStrres', { EmpStaForm: empstaForms });
+    } catch (error) {
+        res.render('hodStrres', { EmpStaForm: [] });
+    }
+});
+app.post('/api/EMP/HOD/STR', async (req, res) => {
+    try {
+        const empstaForms = new EmpStaForm(req.body);
+        await empstaForms.save();
+        res.status(201).send('empstaForms Req Send'); 
+    } catch (err) {
+        console.error(err); 
+        res.status(500).send('Server error'); 
+    }
+});
+app.get('/hod/str', (req, res) => {
+    res.render('hodStrres');
 });
 
 // Connect to MongoDB
@@ -248,3 +371,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+
+
